@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+@theme {
+  /* Dominant Warm Ivory Editorial Canvas */
+  --color-ivory-canvas: #F2EBDD;
+  --color-ivory-surface: #E8E0D0;
+  --color-ivory-well: #DDD4C2;
+
+  /* Cinematic Darkroom Surface (Selective for Labs & Viewfinders) */
+  --color-charcoal-base: #242321;
+  --color-charcoal-surface: #1E1D1B;
+  --color-charcoal-card: #2C2A28;
+  --color-charcoal-border: #3A3733;
+
+  /* Archival Neutral & Dividers */
+  --color-sand-border: #DCD3C4;
+  --color-sand-muted: #6E675D;
+
+  /* Brand Accent (Darkroom Amber Safelight) */
+  --color-orange-muted: #C77B43;
+  --color-orange-hover: #B56B34;
+  --color-orange-tint: rgba(199, 123, 67, 0.12);
+
+  /* Guidance Indicators */
+  --color-guidance-green: #22C55E;
+  --color-guidance-red: #EF4444;
+
+  /* Typography System */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Base Resets: Warm Ivory dominant canvas with strict mobile viewport boundaries */
+html, body {
+  background-color: #F2EBDD;
+  color: #242321;
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+/* Dual-Surface High-Contrast Focus Ring System */
+/* On Warm Ivory Surfaces: Charcoal ring (Contrast 13.24:1 - WCAG AAA) */
+.focus-ring-ivory {
+  outline: none;
+}
+.focus-ring-ivory:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #F2EBDD, 0 0 0 4px #242321;
+}
+
+/* On Cinematic Charcoal Surfaces: Warm Ivory ring (Contrast 13.24:1 - WCAG AAA) */
+.focus-ring-charcoal {
+  outline: none;
+}
+.focus-ring-charcoal:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #242321, 0 0 0 4px #F2EBDD;
+}
+
+/* Universal High-Contrast Primary Button (Charcoal on Muted Orange = 4.74:1, WCAG AA) */
+.btn-primary-orange {
+  background-color: #C77B43;
+  color: #242321;
+  font-weight: 600;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+.btn-primary-orange:hover {
+  background-color: #B56B34;
+}
+.btn-primary-orange:active {
+  transform: scale(0.99);
+}
+.btn-primary-orange:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Monospace EXIF data pills */
+.exif-pill, .exif-pill-dark {
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+  font-size: 0.6875rem;
+  background-color: rgba(36, 35, 33, 0.92);
+  border: 1px solid rgba(220, 211, 196, 0.25);
+  color: #F2EBDD;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.exif-pill-light {
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+  font-size: 0.6875rem;
+  background-color: #E8E0D0;
+  border: 1px solid #DCD3C4;
+  color: #242321;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Editorial hairline border */
+.hairline-sand {
+  border-color: #DCD3C4;
+}
+
+/* Subtle contact sheet frame styling */
+.photo-frame {
+  position: relative;
+  background-color: #E8E0D0;
+  border: 1px solid #DCD3C4;
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.photo-frame:hover {
+  border-color: #C77B43;
+}
+
+/* Custom delicate scrollbar on Warm Ivory */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F2EBDD;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DCD3C4;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C77B43;
+}
+
+/* Accessible Reduced-Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
